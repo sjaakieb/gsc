@@ -1,6 +1,6 @@
 <template>
   <div class="cell">
-    <span v-if="selected">
+    <span v-if="value">
       x
     </span>
     <a v-else @click="select()">
@@ -16,13 +16,15 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 export default class NumberCheck extends Vue {
 
   @Prop({required: false, default: false})
-  selected!: boolean
+  private value!: boolean;
 
-  @Prop({required:true})
-  number!: number
+  @Prop({required: true})
+  private number!: number;
 
-  public select(){
-    this.selected = true;
+  public select() {
+    if (!this.value) {
+      this.$emit("update", true);
+    }
   }
 
 }
@@ -30,11 +32,7 @@ export default class NumberCheck extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-  .cell {
-    padding: 1rem;
-    margin: 1rem;
-    background: white;
-    border-radius: 0.5rem;
-  }
+.cell {
+  background: white;
 }
 </style>

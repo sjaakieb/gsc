@@ -14,7 +14,6 @@ export default class RoundCounter extends Vue {
 
  // Component methods can be declared as instance methods
   public nextRound(): void {
-    if (this.round)
     this.round++;
   }
 }

@@ -25,5 +25,13 @@ export default class App extends Vue {}
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  .cell {
+    padding: 0.5rem;
+    margin: 0.5rem;
+    width: 2rem;
+    height: 2rem;    
+    border-radius: 0.5rem;
+    line-height:2rem;
+  }
 }
 </style>
