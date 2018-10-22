@@ -24,7 +24,7 @@ import Star from './icons/Star.vue';
 
   get statusColor(): string {
     if (this.active) {
-      return "red";
+      return this.color;
     } else {
       return "grey";
     }

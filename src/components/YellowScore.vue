@@ -29,10 +29,10 @@
       <bonus-fox :active="bonusFox"/>
     </div>
     <div class="row">
-      <bonus-star color="yellow" active="false" text="10"/>
-      <bonus-star color="yellow" active="false" text="14"/>
-      <bonus-star color="yellow" active="false" text="16"/>
-      <bonus-star color="yellow" active="false" text="20"/>
+      <bonus-star color="yellow" :active="false" text="10"/>
+      <bonus-star color="yellow" :active="false" text="14"/>
+      <bonus-star color="yellow" :active="false" text="16"/>
+      <bonus-star color="yellow" :active="false" text="20"/>
     </div>
   </div>
 </template>
@@ -68,14 +68,12 @@ export default class YellowScore extends Vue {
     [ true, false, false, false],
   ];
   public select(x: number, y: number ) {
-    console.log('SELECTED', x,y);
     this.selected[y].splice(x, 1, true);
   }
 
   get bonusFox() {
     return this.selected[3].every(x => x);
   }
-
 }
 </script>
 
