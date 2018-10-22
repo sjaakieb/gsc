@@ -26,7 +26,7 @@
       <number-check :value="selected[3][1]" @update="select(1,3)" number="3"/>
       <number-check :value="selected[3][2]" @update="select(2,3)" number="4"/>
       <number-check :value="selected[3][3]" @update="select(3,3)" number="6"/>
-      <bonus-fox :active="bonusFox"/>
+      <bonus-fox :active="bonusLines[3]"/>
     </div>
     <div class="row">
       <bonus-star color="yellow" :active="false" text="10"/>
@@ -71,9 +71,10 @@ export default class YellowScore extends Vue {
     this.selected[y].splice(x, 1, true);
   }
 
-  get bonusFox() {
-    return this.selected[3].every(x => x);
+  get bonusLines() {
+    return this.selected.map(line => line.every(row => row));
   }
+
 }
 </script>
 
