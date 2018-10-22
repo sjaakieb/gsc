@@ -26,7 +26,13 @@
       <number-check :value="selected[3][1]" @update="select(1,3)" number="3"/>
       <number-check :value="selected[3][2]" @update="select(2,3)" number="4"/>
       <number-check :value="selected[3][3]" @update="select(3,3)" number="6"/>
-      <bonus-fox/>
+      <bonus-fox :active="bonusFox"/>
+    </div>
+    <div class="row">
+      <bonus-star color="yellow" active="false" text="10"/>
+      <bonus-star color="yellow" active="false" text="14"/>
+      <bonus-star color="yellow" active="false" text="16"/>
+      <bonus-star color="yellow" active="false" text="20"/>
     </div>
   </div>
 </template>
@@ -35,6 +41,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import NumberCheck from './NumberCheck.vue';
 import BonusCross from './BonusCross.vue';
+import BonusStar from './BonusStar.vue';
 import BonusFox from './BonusFox.vue';
 import BonusNumber from './BonusNumber.vue';
 
@@ -44,6 +51,7 @@ import BonusNumber from './BonusNumber.vue';
     BonusCross,
     BonusFox,
     BonusNumber,
+    BonusStar,
   },
 })
 export default class YellowScore extends Vue {
@@ -62,6 +70,10 @@ export default class YellowScore extends Vue {
   public select(x: number, y: number ) {
     console.log('SELECTED', x,y);
     this.selected[y].splice(x, 1, true);
+  }
+
+  get bonusFox() {
+    return this.selected[3].every(x => x);
   }
 
 }

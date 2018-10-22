@@ -1,22 +1,28 @@
 <template>
   <div class="cell">
-    <Fox :color="color"/>
+    <Star :color="statusColor" :text="text"/>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import Fox from './icons/Fox.vue';
+import Star from './icons/Star.vue';
 
 @Component({
   components:{
-    Fox,
+    Star,
   }
-}) export default class BonusFox extends Vue {
+}) export default class BonusStar extends Vue {
   @Prop({required: true})
   private active!: boolean;
 
-  get color(): string {
+  @Prop({required: true})
+  private color!: string;
+
+  @Prop({required: true})
+  private text!: string;
+
+  get statusColor(): string {
     if (this.active) {
       return "red";
     } else {

@@ -1,0 +1,106 @@
+<template>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="7.4650955mm"
+   height="7.3953829mm"
+   viewBox="0 0 26.451126 26.204112"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="star.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="119.43721"
+     inkscape:cy="-0.19769425"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-0.46310299,0.20060396)">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="70.584412"
+       y="384.96704"
+       id="text4203"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4205"
+         x="70.584412"
+         y="384.96704"
+         style="fill:#000000;fill-opacity:1" /></text>
+    <g
+       id="g4211"
+       transform="translate(-60.45763,-376.18081)">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4201"
+         d="m 68.356355,377.881 c 3.156726,1.64149 3.219861,1.70463 3.219861,1.70463 l 2.272843,-2.84106 2.588516,2.77792 3.219861,-1.51522 0.947018,3.8512 3.598669,0.12627 -0.757615,3.59867 3.156727,2.08344 -2.714785,2.90419 2.020305,3.15672 -3.535534,1.13643 0.126269,3.6618 -3.661803,-0.50508 -1.767767,3.40927 -3.030457,-2.27285 -2.77792,2.20971 -1.767767,-3.09359 -3.661803,0.56821 0.06314,-3.59867 -3.409265,-1.57836 1.704632,-3.21986 -2.525381,-2.71479 2.841054,-2.14657 -0.883883,-3.283 3.598668,-0.44194 z"
+         style="fill:#ffff00;fill-rule:evenodd;stroke:#fffffa;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="89.999998%"
+         id="text4207"
+         y="393.95663"
+         x="72.280701"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:89.99999762%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:89.99999762%;font-family:FreeSans;-inkscape-font-specification:'FreeSans, Italic';text-align:center;writing-mode:lr-tb;text-anchor:middle"
+           y="393.95663"
+           x="72.280701"
+           id="tspan4209"
+           sodipodi:role="line">{{text}}</tspan></text>
+    </g>
+  </g>
+</svg>
+</template>
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
+
+@Component
+export default class StarIcon extends Vue {
+  @Prop({required: false, default: "grey"})
+  private color!: string;
+
+  @Prop({required: true})
+  private text!: string;
+
+}
+</script>
