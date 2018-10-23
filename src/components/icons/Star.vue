@@ -22,7 +22,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
 export default class StarIcon extends Vue {
-  @Prop({required: false, default: "grey"})
+  @Prop({required: false, default: 'grey'})
   private color!: string;
 
   @Prop({required: true})

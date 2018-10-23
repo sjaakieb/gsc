@@ -72,7 +72,7 @@ export default class YellowScore extends Vue {
   }
 
   get bonusLines() {
-    return this.selected.map(line => line.every(row => row));
+    return this.selected.map((line) => line.every((row) => row));
   }
 
 }

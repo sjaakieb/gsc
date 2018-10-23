@@ -23,7 +23,7 @@ export default class NumberCheck extends Vue {
 
   public select() {
     if (!this.value) {
-      this.$emit("update", true);
+      this.$emit('update', true);
     }
   }
 

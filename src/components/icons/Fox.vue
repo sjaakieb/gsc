@@ -33,7 +33,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
 export default class FoxIcon extends Vue {
-  @Prop({required: false, default: "grey"})
+  @Prop({required: false, default: 'grey'})
   private color!: string;
 
 }
