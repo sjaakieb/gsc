@@ -1,5 +1,5 @@
 <template>
-  <div class="cell" :class="color">
+  <div class="cell" :class="[color, { selected }]">
     {{number}}
   </div>
 </template>
@@ -16,6 +16,9 @@ export default class NumberCheck extends Vue {
   @Prop({required: true})
   private number!: number;
 
+  @Prop({required: true})
+  private selected!: boolean;
+
 }
 </script>
 
@@ -23,6 +26,16 @@ export default class NumberCheck extends Vue {
 <style scoped lang="scss">
 .orange {
   color: white;
-  background: orangered;
+  background: rgba(255,69,0,0.2);
+  &.selected {
+    background: orangered;
+  }  
+}
+.purple {
+  color: white;
+  background: pink;
+  &.selected {
+    background: purple;
+  }  
 }
 </style>

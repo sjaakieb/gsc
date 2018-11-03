@@ -9,9 +9,9 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 import Star from './icons/Star.vue';
 
 @Component({
-  components:{
+  components: {
     Star,
-  }
+  },
 }) export default class BonusStar extends Vue {
   @Prop({required: true})
   private active!: boolean;
@@ -26,7 +26,7 @@ import Star from './icons/Star.vue';
     if (this.active) {
       return this.color;
     } else {
-      return "grey";
+      return 'grey';
     }
   }
 }

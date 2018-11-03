@@ -5,21 +5,21 @@
       <number-check :value="selected[0][1]" @update="select(1,0)" number="6"/>
       <number-check :value="selected[0][2]" @update="select(2,0)" number="5"/>
       <number-check :value="selected[0][3]" @update="select(3,0)" number="0"/>
-      <bonus-cross color="blue" />
+      <bonus-cross :selected="bonusLines[0]" color="blue" />
     </div>
     <div class="row">
       <number-check :value="selected[1][0]" @update="select(0,1)" number="2"/>
       <number-check :value="selected[1][1]" @update="select(1,1)" number="1"/>
       <number-check :value="selected[1][2]" @update="select(2,1)" number="0"/>
       <number-check :value="selected[1][3]" @update="select(3,1)" number="5"/>
-      <bonus-number color="orange" number="4"/>
+      <bonus-number :selected="bonusLines[1]" color="orange" number="4"/>
     </div>
     <div class="row">
       <number-check :value="selected[2][0]" @update="select(0,2)" number="1"/>
       <number-check :value="selected[2][1]" @update="select(1,2)" number="0"/>
       <number-check :value="selected[2][2]" @update="select(2,2)" number="2"/>
       <number-check :value="selected[2][3]" @update="select(3,2)" number="4"/>
-      <bonus-cross color="green"/>
+      <bonus-cross :selected="bonusLines[2]" color="green"/>
     </div>
     <div class="row">
       <number-check :value="selected[3][0]" @update="select(0,3)" number="0"/>
@@ -29,10 +29,11 @@
       <bonus-fox :active="bonusLines[3]"/>
     </div>
     <div class="row">
-      <bonus-star color="yellow" :active="false" text="10"/>
-      <bonus-star color="yellow" :active="false" text="14"/>
-      <bonus-star color="yellow" :active="false" text="16"/>
-      <bonus-star color="yellow" :active="false" text="20"/>
+      <bonus-star color="yellow" :active="bonusColumns[0]" text="10"/>
+      <bonus-star color="yellow" :active="bonusColumns[1]" text="14"/>
+      <bonus-star color="yellow" :active="bonusColumns[2]" text="16"/>
+      <bonus-star color="yellow" :active="bonusColumns[3]" text="20"/>
+      <bonus-plus-one :active="bonusDiagonal"/>
     </div>
   </div>
 </template>
@@ -43,6 +44,7 @@ import NumberCheck from './NumberCheck.vue';
 import BonusCross from './BonusCross.vue';
 import BonusStar from './BonusStar.vue';
 import BonusFox from './BonusFox.vue';
+import BonusPlusOne from './BonusPlusOne.vue';
 import BonusNumber from './BonusNumber.vue';
 
 @Component({
@@ -52,6 +54,7 @@ import BonusNumber from './BonusNumber.vue';
     BonusFox,
     BonusNumber,
     BonusStar,
+    BonusPlusOne,
   },
 })
 export default class YellowScore extends Vue {
@@ -72,7 +75,15 @@ export default class YellowScore extends Vue {
   }
 
   get bonusLines() {
-    return this.selected.map(line => line.every(row => row));
+    return this.selected.map((line) => line.every((row) => row));
+  }
+
+  get bonusColumns() {
+    return [0,1,2,3].map((col)=> this.selected.map((line) => line[col])).map((col) => col.every((row) => row));
+  }
+
+  get bonusDiagonal() {
+    return [0,1,2,3].map((i)=> this.selected[i][i]).every((cel) => cel);
   }
 
 }

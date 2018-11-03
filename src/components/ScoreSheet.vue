@@ -4,6 +4,7 @@
     <reroll-counter/>
     <extra-die-counter/>
     <yellow-score/>
+    <blue-score/>
   </div>
 </template>
 
@@ -13,6 +14,7 @@ import RoundCounter from './RoundCounter.vue';
 import RerollCounter from './RerollCounter.vue';
 import ExtraDieCounter from './ExtraDieCounter.vue';
 import YellowScore from './YellowScore.vue';
+import BlueScore from './BlueScore.vue';
 
 @Component({
   components: {
@@ -20,6 +22,7 @@ import YellowScore from './YellowScore.vue';
     RerollCounter,
     ExtraDieCounter,
     YellowScore,
+    BlueScore,
   },
 })
 export default class ScoreSheet extends Vue {
