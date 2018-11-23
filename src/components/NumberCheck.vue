@@ -1,9 +1,9 @@
 <template>
-  <div class="cell">
+  <div class="cell" @click="select()">
     <span v-if="value">
       x
     </span>
-    <a v-else @click="select()">
+    <a v-else>
       {{ number }}
     </a>
   </div>
@@ -34,5 +34,6 @@ export default class NumberCheck extends Vue {
 <style scoped lang="scss">
 .cell {
   background: white;
+  cursor: pointer;
 }
 </style>

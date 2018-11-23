@@ -1,21 +1,17 @@
 <template>
   <div>
-    <div>
-      <bonus-star color="yellow" :active="count>0" text="1"/>
-      <bonus-star color="yellow" :active="count>1" text="2"/>
-      <bonus-star color="yellow" :active="count>2" text="4"/>
-      <bonus-star color="yellow" :active="count>3" text="7"/>
-      <bonus-star color="yellow" :active="count>4" text="11"/>
-      <bonus-star color="yellow" :active="count>5" text="16"/>
-      <bonus-star color="yellow" :active="count>6" text="22"/>
-      <bonus-star color="yellow" :active="count>7" text="29"/>
-      <bonus-star color="yellow" :active="count>8" text="37"/>
-      <bonus-star color="yellow" :active="count>9" text="46"/>
-      <bonus-star color="yellow" :active="count>10" text="56"/>
+    <div class="score-row">
+      <div v-for="(score,index) in scores" :key="index" class="score-cell">
+        <Star :color="count>index?'yellow':'grey'" :text="score"/>
+      </div>
     </div>
     <div class="matrix">
       <div class="row">
-        <div>blue+white</div>
+        <div>
+          <cube color="white" fill-color="blue"/>
+          +
+          <cube color="grey" fill-color="white"/>
+        </div>
         <number-check :value="selected[0][1]" @update="select(1,0)" number="2"/>
         <number-check :value="selected[0][2]" @update="select(2,0)" number="3"/>
         <number-check :value="selected[0][3]" @update="select(3,0)" number="4"/>
@@ -49,7 +45,8 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import NumberCheck from './NumberCheck.vue';
 import BonusCross from './BonusCross.vue';
-import BonusStar from './BonusStar.vue';
+import Star from './icons/Star.vue';
+import Cube from './icons/Cube.vue';
 import BonusFox from './BonusFox.vue';
 import BonusPlusOne from './BonusPlusOne.vue';
 import BonusNumber from './BonusNumber.vue';
@@ -60,16 +57,19 @@ import BonusNumber from './BonusNumber.vue';
     BonusCross,
     BonusFox,
     BonusNumber,
-    BonusStar,
+    Star,
+    Cube,
     BonusPlusOne,
   },
 })
-export default class YellowScore extends Vue {
+export default class BlueScore extends Vue {
   private selected = [
     [ true, false, false, false],
     [ false, false, false, false],
     [ false, false, false, false],
   ];
+  private scores = [1,2,4,7,11,16,22,29,37,46,56];
+
   public select(x: number, y: number ) {
     this.selected[y].splice(x, 1, true);
   }
@@ -106,6 +106,16 @@ export default class YellowScore extends Vue {
   .row {
     display: flex;
     flex-direction: row;
+  }
+}
+.score-row {
+  display: flex;
+  flex-direction: row;
+  .score-cell {
+    height: 2rem;
+    width: 2rem;
+    padding: 0rem;
+    margin: 0rem;
   }
 }
 </style>
